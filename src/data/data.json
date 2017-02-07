@@ -1,0 +1,68 @@
+{
+  "works": [
+    {
+      "id": "01",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_2015_Basquiat_EL135.37_4000W.jpg",
+      "full": "2015_Basquiat_EL135.37_4000W.jpg"
+
+    },
+    {
+      "id": "02",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_BASQUIAT-1.jpg",
+      "full": "BASQUIAT-1.jpg"
+
+    },
+    {
+      "id": "03",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_basquiat.jpg",
+      "full": "basquiat.jpg"
+
+    },
+    {
+      "id": "04",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_Jean-Michel-Basquiat-50-cent-Piece.jpg",
+      "full": "Jean-Michel-Basquiat-50-cent-Piece.jpg"
+
+    },
+    {
+      "id": "05",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_Jean-Michel-Basquiat-Boy-and-Dog-in-a-Johnnypump.jpg",
+      "full": "Jean-Michel-Basquiat-Boy-and-Dog-in-a-Johnnypump.jpg"
+
+    },
+    {
+      "id": "06",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_Jean-Michel-Basquiat-Dustheads.jpg",
+      "full": "Jean-Michel-Basquiat-Dustheads.jpg"
+
+    },
+    {
+      "id": "07",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_jean-michel-basquiat-theredlist.jpg",
+      "full": "jean-michel-basquiat-theredlist.jpg"
+
+    },
+    {
+      "id": "08",
+      "title": "Work Title",
+      "dimensions": "28(w) x 56(h)cm",
+      "thumbnail": "thumb_notary.jpg",
+      "full": "notary.jpg"
+
+    }
+  ]
+}
