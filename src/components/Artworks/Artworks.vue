@@ -11,10 +11,6 @@
       :heightFn="updateHeight"
       :selectFn="showModal">      
   </app-artwork>
-  <app-portraits 
-      v-if="myHeight"
-      :posTop="myHeight">      
-  </app-portraits>
   <transition name="fade-quick" appear>
   <app-modal 
     v-if="activateModal"
@@ -27,7 +23,6 @@
 <script>
 import Artwork from './Artwork.vue';
 import Modal from './Modal.vue';
-import Portraits from './Portraits.vue';
 
 export default {
   data() {
@@ -48,7 +43,7 @@ export default {
   methods: {
     updateHeight(val) {
       if(val != this.lastStoredArtHeight) {
-        this.myHeight = val*this.numRows + 150*this.numRows;
+        this.myHeight = val*this.numRows + 75*this.numRows;
         this.lastStoredArtHeight = val;
         console.log(this.myHeight);
       }
@@ -65,8 +60,7 @@ export default {
   },
   components: {
     appArtwork: Artwork,
-    appModal: Modal,
-    appPortraits: Portraits
+    appModal: Modal
   }
 }
 </script>
@@ -74,12 +68,9 @@ export default {
 <style>
 
  .artworks {
- /* -webkit-column-count: 2; 
-  -moz-column-count: 2; 
-  column-count: 2;
-  column-gap: 100px;*/
+ position: relative;
+ width: 100%;
 
  }
-
 
 </style>

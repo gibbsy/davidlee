@@ -24,6 +24,13 @@
     }
     @else {
       opacity: $hamburger-hover-opacity;
+      .hamburger-inner {
+        &,
+        &::before,
+        &::after {
+          background-color: $hamburger-hover-layer-color;
+        }
+      }
     }
   }
 }

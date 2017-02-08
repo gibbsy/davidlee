@@ -1,7 +1,7 @@
 <template>
   <div  class="artwork"
         :class="{left: !isOdd, right: isOdd, off: !isReady, move: appeared}" 
-        :style="{ top: posTop + 'px', left: posLeft + 'px', height: myHeight + 'px' }"
+        :style="{ top: posTop + 'px', height: myHeight + 'px' }"
         @click="selectFn(index)">
     <img :src="thumbImg" ref="art">
     <div class="info">
@@ -9,13 +9,6 @@
       <h3>{{artwork.dimensions}}</h3>
       <h3>{{artwork.thumbnail}}</h3>
     </div>
-    left?{{isLeft}} right? {{isRight}} row? {{rowNum}}
-    <br>
-    {{myWidth}} / {{myHeight}} 
-    <br>
-    {{posTop}} / {{posLeft}} 
-    <br>
-    {{winWidth}} // {{winHeight}}
   </div>
 </template>
 
@@ -29,7 +22,6 @@ import Vue from 'vue';
         myWidth: '',
         myHeight: '',
         posTop: '',
-        posLeft: '',
         isReady: false,
         appeared: false
       }
@@ -65,16 +57,14 @@ import Vue from 'vue';
        this.$nextTick(function() {
         this.calculatePosition();
         })
+       console.log('size');
       },
       calculatePosition() {
-        //this.winWidth = window.innerWidth;
         this.heightFn(this.myHeight);
         if(this.isLeft==true){
-          this.posTop = this.rowNum * this.myHeight - (this.myHeight/10) + this.index * 50;
-          this.posLeft = (this.winWidth/2) - this.myWidth - 50;
+          this.posTop = (this.rowNum-1) * this.myHeight  + this.index * 50;
         } else {
-          this.posTop = this.rowNum * this.myHeight - (this.myHeight/10) + 100 + this.index * 50;
-          this.posLeft = (this.winWidth/2) + 50;
+          this.posTop = (this.rowNum-1) * this.myHeight + 200 + this.index * 50;
         }
         if (!this.appeared) {
           this.animateIn();
@@ -90,20 +80,21 @@ import Vue from 'vue';
         }}).delay(delay);
       }
     },
+    watch: {
+      winWidth: function() { this.calculateSize() },
+      winHeight: function() { this.calculateSize() }
+    },
     mounted() {
       var self = this;
       this.$refs.art.addEventListener("load", function() {
           self.calculateSize();  
           //console.log('fired')
       });
-    },
-    updated() {
-      this.calculateSize();
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 img {
   max-width: 100%;
@@ -111,8 +102,16 @@ img {
 
 .artwork{
   position: absolute;
-  width: 28%;
+  width: 46%;
   display: block;
+}
+
+.artwork.left {
+  left: 0;
+}
+
+.artwork.right {
+  right: 0;
 }
 
 .artwork:hover .info {

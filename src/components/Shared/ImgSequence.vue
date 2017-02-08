@@ -45,18 +45,18 @@
       new preLoader(this.urls, {
         onProgress: function(src, element, index){
             if (element){
-                console.log('loaded ' + src);
+                //console.log('loaded ' + src);
                 // gets optional reference to element you can use:
                 // document.appendChild(element);
             }
             else {
-                console.log('failed ' + src);
+                //console.log('failed ' + src);
             }
             self.donePercent = Math.floor((100 / this.queue.length) * this.completed.length);
-            console.log(self.donePercent + '% completed', this.completed.length + this.errors.length + ' / ' + this.queue.length + ' done');
+            //console.log(self.donePercent + '% completed', this.completed.length + this.errors.length + ' / ' + this.queue.length + ' done');
         },
         onComplete: function(loaded, errors){
-            console.log('cache primed with:', loaded);
+            //console.log('cache primed with:', loaded);
             errors && errors.length && console.log('these failed:', errors);
             self.loadDone();
         }
@@ -74,7 +74,7 @@
         //play once
         if(this.currentFrame < this.urls.length-1) {
           this.currentFrame ++;
-          console.log(this.currentFrame)
+          //console.log(this.currentFrame)
           setTimeout(this.animate, 30);
         } else {
           //animation finished
@@ -88,11 +88,11 @@
         //loop the animation
         if(this.currentFrame < this.urls.length-1) {
           this.currentFrame ++;
-          console.log(this.currentFrame)
+          //console.log(this.currentFrame)
           setTimeout(this.animate, 30);
         } else {
           this.currentFrame = 0;
-          console.log('loop');
+          //console.log('loop');
           setTimeout(this.animate, 30);
         }
       }
