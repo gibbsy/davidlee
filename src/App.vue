@@ -1,7 +1,10 @@
 <template>
   <div class="container">
-  <transition v-if="!intro" name="fade-slow" mode="out-in">
-  <app-hamburger></app-hamburger>
+  <transition name="fade-slow" mode="out-in">
+  <app-hamburger v-if="!intro" :menuFn="toggleAbout"></app-hamburger>
+  </transition>
+  <transition name="fade-quick" mode="out-in">
+  <app-about v-if="showAbout"></app-about>
   </transition>
     <transition name="fade-slow" mode="out-in">
       <app-intro v-if="intro"></app-intro>
@@ -23,7 +26,8 @@ import Header from './components/Header.vue';
 import Hamburger from './components/Shared/Hamburger.vue'
 import Artworks from './components/Artworks/Artworks.vue';
 import Footer from './components/Footer.vue';
-import Intro from './components/Intro.vue'
+import Intro from './components/Intro.vue';
+import About from './components/About.vue'
 export default {
   name: 'app',
   components: {
@@ -31,11 +35,13 @@ export default {
     appHamburger: Hamburger,
     appArtworks: Artworks,
     appIntro: Intro,  
+    appAbout: About,
     appFooter: Footer
   },
   data() {
     return {
-      hideFooter: true
+      hideFooter: true,
+      showAbout: false
     }
   },
   computed : {
@@ -48,6 +54,9 @@ export default {
       this.$nextTick(function() {
         this.$store.dispatch('setWinSize')
       })
+    },
+    toggleAbout() {
+      this.showAbout = !this.showAbout;
     },
     showFooter(){
       //to do : hook up to state scroll fn
@@ -70,18 +79,37 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import 'assets/css/reset.css';
 @import 'assets/css/grid.css';
 
 body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'brandon-grotesque';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2 {
-  font-weight: normal;
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+  font-family: 'brandon-grotesque';
+  color: #fff;
+}
+
+h1   {
+  font-weight: 900;
+  font-size: 2em;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: underline;
+  line-height: 6em;
 }
 
 ul {
@@ -95,7 +123,12 @@ li {
 }
 
 a {
-  color: #fff;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.25s;
+  &:hover{
+    color: #fff;
+  }
 }
 
 .container {

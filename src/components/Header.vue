@@ -1,11 +1,11 @@
 <template>
   <div id="header-large" class="header" ref="lrg">
   <div id="logo-top" ref="logo"> 
-    <img src="../assets/img_seq/dl_logo/dl_logo_00050.jpg">
+    <img src="../assets/images/dl_logo_transparent.png">
   </div>
   <transition appear name="fade-down">
   <div id="logo-left" v-if="showLeftLogo"> 
-    <img src="../assets/img_seq/dl_logo/dl_logo_00050.jpg">
+    <img src="../assets/images/dl_logo_transparent.png">
   </div>
   </transition>
   <transition appear name="fade-slow">
@@ -25,10 +25,14 @@ export default {
       showLeftLogo: false
     }
   },
+  computed: {
+    scrolled() {
+      return this.$store.getters.scrollPos;
+    }
+  },
   methods: {
     onScroll() {
-     // console.log(this.last_known_scroll_position)
-      this.$store.getters.last_scroll_position = Math.round(window.scrollY);  
+      this.$store.dispatch('onScrolled', window.scrollY.toFixed(1));
       this.requestTick();    
     },
     requestTick() {
@@ -42,11 +46,12 @@ export default {
     },
     updateScroll() {
       this.ticking = false;
-      let currentScrollY = this.$store.getters.last_scroll_position;
-      //console.log('scrolled'+this.$store.getters.last_scroll_position)
+      let currentScrollY = this.$store.getters.scrollPos;
+      console.log('scrolled'+this.$store.getters.scrollPos)
       //console.log('content'+mezr.offset(this.$refs.logo, 'content').top);
       //update dom
-      this.showLeftLogo = this.checkInView(this.$refs.logo);  
+        
+      //this.last_known_scroll_position < this.lrgHeight ? this.showLarge = true : this.showLarge = false;
     },
     scrollInit() {
       window.addEventListener('scroll', this.onScroll);
@@ -54,7 +59,12 @@ export default {
     },
     checkInView(el){
       let pos = mezr.offset(el, 'content').top + mezr.height(el, 'content');
-      return this.$store.getters.last_scroll_position > pos;
+      return this.$store.getters.scrollPos > pos;
+    }
+  },
+  watch: {
+    scrolled: function() {
+      this.showLeftLogo = this.checkInView(this.$refs.logo);
     }
   },
   mounted() {
@@ -73,7 +83,7 @@ export default {
   }
   #logo-top{
     display: block;
-    width: 160px;
+    width: 140px;
     margin: 0 auto;
     padding-bottom: 80px;
      img {
@@ -83,7 +93,7 @@ export default {
 
   #logo-left{
     position: fixed;
-    width: 160px;
+    width: 120px;
     top: 65px;
     left: 50px;
     img {

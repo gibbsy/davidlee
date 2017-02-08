@@ -1,13 +1,15 @@
 <template>
   <div  class="artwork"
         :class="{left: !isOdd, right: isOdd, off: !isReady, move: appeared}" 
-        :style="{ top: posTop + 'px', height: myHeight + 'px' }"
+        :style="{ top: posTop + 'px', height: myHeight + 'px', transform: 'translateY(' + parallaxVal + 'px)'  }"
         @click="selectFn(index)">
     <img :src="thumbImg" ref="art">
     <div class="info">
       <h1>{{artwork.title}}</h1>
-      <h3>{{artwork.dimensions}}</h3>
-      <h3>{{artwork.thumbnail}}</h3>
+      <h2>{{artwork.dimensions}}</h2>
+      <h3>Enquire</h3>
+      <h1>07939 526 895</h1>
+      <h1><a href="mailto:hello@davidandlee.co.uk">hello@davidandlee.co.uk</a></h1>
     </div>
   </div>
 </template>
@@ -45,6 +47,12 @@ import Vue from 'vue';
       },
       winHeight() {
         return this.$store.getters.winHeight;
+      },
+      scrolledVal() {
+        return this.$store.getters.scrollPos;
+      },
+      parallaxVal() {
+        return this.isLeft ? this.$store.getters.scrollPos/10 :  (-1 * this.$store.getters.scrollPos)/10
       }
     },
     methods: {
@@ -82,7 +90,7 @@ import Vue from 'vue';
     },
     watch: {
       winWidth: function() { this.calculateSize() },
-      winHeight: function() { this.calculateSize() }
+      winHeight: function() { this.calculateSize() },
     },
     mounted() {
       var self = this;
@@ -122,13 +130,21 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 50%;
   background-color: black;
   opacity: 0;
   color: #fff;
   cursor: pointer;
   transition: opacity 0.5s;
+  padding: 25% 10%;
+   h1 {
+
+   }
+   h2{
+
+   }
+
 }
 
 .off {
@@ -137,7 +153,7 @@ img {
 }
 
 .move {
-  transition: all 0.5s;
+  transition: position 0.5s;
 }
 
   

@@ -58,13 +58,17 @@
 }
 
 #image-sequence {
-    margin: 0;
+  margin: 0;
   position: absolute;
-  top: 47%;
+  width: 360px;
+  top: 49%;
   left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-
+  margin-right: -360px;
+  transform: translate(-50%, -50%);
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 </style>

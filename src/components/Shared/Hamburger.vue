@@ -17,6 +17,7 @@ export default {
   methods: {
     btnToggle() {
       this.activate = !this.activate;
+      this.menuFn();
     }
   }
 }
@@ -37,5 +38,14 @@ export default {
     position: fixed;
     top: 65px;
     right: 100px;
+    z-index: 101;
+    cursor: pointer;
+  }
+  .hamburger.is-active .hamburger-box .hamburger-inner {
+  &,
+  &::before,
+  &::after {
+    background-color: #fff;
+    }
   }
 </style>

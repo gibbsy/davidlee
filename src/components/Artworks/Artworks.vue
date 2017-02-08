@@ -1,5 +1,4 @@
 <template>
-<!-- <div class="content_section group right_margin"></div> -->
  <div class="artworks" 
       ref="artworks"
       :style="{height: myHeight + 'px'}">
@@ -43,7 +42,7 @@ export default {
   methods: {
     updateHeight(val) {
       if(val != this.lastStoredArtHeight) {
-        this.myHeight = val*this.numRows + 75*this.numRows;
+        this.myHeight = val*this.numRows + 100*this.numRows;
         this.lastStoredArtHeight = val;
         console.log(this.myHeight);
       }

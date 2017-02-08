@@ -9,7 +9,7 @@ const mutations = {
 }
 
 const actions = {
-  onScroll({commit}, newPos){
+  onScrolled: ({commit}, newPos) => {
     commit('SCROLLED', newPos);
   }
 }
@@ -20,3 +20,9 @@ const getters = {
   } 
 }
 
+export default {
+    state,
+    mutations,
+    actions,
+    getters
+}
