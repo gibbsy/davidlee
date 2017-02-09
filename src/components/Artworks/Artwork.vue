@@ -7,9 +7,9 @@
     <div class="info">
       <h1>{{artwork.title}}</h1>
       <h2>{{artwork.dimensions}}</h2>
-      <h3>Enquire</h3>
+      <h3 id="enquire">Enquire</h3>
       <h1>07939 526 895</h1>
-      <h1><a href="mailto:hello@davidandlee.co.uk">hello@davidandlee.co.uk</a></h1>
+      <h1>hello@davidandlee.co.uk</h1>
     </div>
   </div>
 </template>
@@ -65,7 +65,7 @@ import Vue from 'vue';
        this.$nextTick(function() {
         this.calculatePosition();
         })
-       console.log('size');
+       //console.log('size');
       },
       calculatePosition() {
         this.heightFn(this.myHeight);
@@ -138,12 +138,6 @@ img {
   cursor: pointer;
   transition: opacity 0.5s;
   padding: 25% 10%;
-   h1 {
-
-   }
-   h2{
-
-   }
 
 }
 

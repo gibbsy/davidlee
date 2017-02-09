@@ -109,7 +109,7 @@ h3 {
   text-transform: uppercase;
   font-weight: 700;
   text-decoration: underline;
-  line-height: 6em;
+  line-height: 4em;
 }
 
 ul {
@@ -123,11 +123,11 @@ li {
 }
 
 a {
-  color: #ccc;
+  color: #fff;
   text-decoration: none;
   transition: color 0.25s;
   &:hover{
-    color: #fff;
+    color: #ccc;
   }
 }
 

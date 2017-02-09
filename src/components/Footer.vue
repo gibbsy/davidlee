@@ -113,7 +113,7 @@ export default {
   height: 400px;
   text-align: center;
   color: #eee;
-  padding-top: 100px;
+  padding-top: 130px;
   z-index: 0;
   h1 {
     font-size: 3em;

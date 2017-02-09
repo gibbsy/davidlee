@@ -14,7 +14,7 @@ const mutations = {
     },
     'SET_SELECTED' (state, index) {
         state.selected = state.artworks[index];
-        console.log(state.selected.thumbnail);
+       // console.log(state.selected.thumbnail);
     },
     'INTRO_DONE' (state) {
         state.intro = false;

@@ -44,7 +44,7 @@ export default {
       if(val != this.lastStoredArtHeight) {
         this.myHeight = val*this.numRows + 100*this.numRows;
         this.lastStoredArtHeight = val;
-        console.log(this.myHeight);
+        //console.log(this.myHeight);
       }
     },
     showModal(index) {
