@@ -7,7 +7,7 @@
     <img src="../../assets/images/dl_logo_transparent.png">
   </div>
    <div id="title">  
-   <h1>{{title}}</h1>
+   <h1 v-html="title"></h1>
    <h2>{{dimensions}}</h2>
    </div>
   </div>

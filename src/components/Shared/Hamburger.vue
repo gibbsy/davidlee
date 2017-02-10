@@ -49,8 +49,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../assets/css/hamburgers/hamburgers.scss';
-  @import '../../assets/css/hamburgers/_base.scss';
+  @import '../../css/hamburgers/hamburgers.scss';
+  @import '../../css/hamburgers/_base.scss';
   button {
     border: none;
     &:focus {

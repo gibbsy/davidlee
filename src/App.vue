@@ -78,8 +78,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'assets/css/reset.css';
-@import 'assets/css/grid.css';
+@import 'css/reset.css';
+@import 'css/grid.css';
 
 body {
   font-family: 'brandon-grotesque';

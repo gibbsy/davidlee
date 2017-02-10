@@ -34,7 +34,7 @@
     pushToArray(i) {
       let frameNum = this.padDigits(i, 5),
           imgName = this.filename + frameNum + '.' + this.format,
-          fullPath = require('../../assets/img_seq/' + this.directory + '/' + imgName);
+          fullPath = '/assets/img_seq/' + this.directory + '/' + imgName;
       this.urls.push(fullPath);
       if(i == this.numFrames-1) {
         this.preLoad();

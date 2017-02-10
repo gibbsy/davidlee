@@ -1,11 +1,11 @@
 <template>
   <div id="header-large" class="header" ref="lrg">
   <div id="logo-top" ref="logo"> 
-    <img src="../assets/images/dl_logo_transparent.png">
+    <img src="/assets/images/dl_logo_transparent.png">
   </div>
   <transition appear name="fade-down">
   <div id="logo-left" v-if="showLeftLogo"> 
-    <img src="../assets/images/dl_logo_transparent.png">
+    <img src="/assets/images/dl_logo_transparent.png">
   </div>
   </transition>
   <transition appear name="fade-slow">
