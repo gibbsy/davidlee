@@ -1,5 +1,5 @@
 <template>
-  <button class="hamburger hamburger--squeeze" :class="{'is-active': activate}" type="button" @click="btnToggle">
+  <button class="hamburger hamburger--squeeze" :class="{'is-active': activate, 'light': modalAbout}" type="button" @click="btnToggle">
   <span class="hamburger-box">
     <span class="hamburger-inner"></span>
   </span>
@@ -11,13 +11,37 @@ export default {
   props: ['menuFn'],
   data() {
     return {
-      activate: false
+    }
+  },
+  computed: {
+    modalArt() {
+      return this.$store.getters.isModalArt;
+    },
+    modalAbout() {
+      return this.$store.getters.isModalAbout;
+    },
+    modalOff() {
+      return this.$store.getters.isModalOff;
+    },
+    activate() {
+      return this.modalAbout || this.modalArt;
     }
   },
   methods: {
     btnToggle() {
-      this.activate = !this.activate;
-      this.menuFn();
+      if (this.modalOff){
+
+        this.$store.dispatch('setMenu', 'modalAbout');
+
+      } else if (this.modalAbout) {   
+
+        this.$store.dispatch('setMenu', 'off');
+
+      } else if (this.modalArt) {   
+
+        this.$store.dispatch('setMenu', 'off');
+
+      } 
     }
   }
 }
@@ -41,7 +65,7 @@ export default {
     z-index: 101;
     cursor: pointer;
   }
-  .hamburger.is-active .hamburger-box .hamburger-inner {
+  .hamburger.is-active.light .hamburger-box .hamburger-inner {
   &,
   &::before,
   &::after {

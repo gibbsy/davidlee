@@ -1,10 +1,10 @@
 <template>
   <div class="container">
   <transition name="fade-slow" mode="out-in">
-  <app-hamburger v-if="!intro" :menuFn="toggleAbout"></app-hamburger>
+  <app-hamburger v-if="!intro"></app-hamburger>
   </transition>
   <transition name="fade-quick" mode="out-in">
-  <app-about v-if="showAbout"></app-about>
+  <app-about v-if="modalAbout"></app-about>
   </transition>
     <transition name="fade-slow" mode="out-in">
       <app-intro v-if="intro"></app-intro>
@@ -40,14 +40,16 @@ export default {
   },
   data() {
     return {
-      hideFooter: true,
-      showAbout: false
+      hideFooter: true
     }
   },
   computed : {
     intro() {
       return this.$store.getters.isIntro;
-    } 
+    },
+    modalAbout() {
+      return this.$store.getters.isModalAbout;
+    }
   },
   methods: {
     onResize(){
@@ -55,11 +57,7 @@ export default {
         this.$store.dispatch('setWinSize')
       })
     },
-    toggleAbout() {
-      this.showAbout = !this.showAbout;
-    },
     showFooter(){
-      //to do : hook up to state scroll fn
       let self = this;
       setTimeout(function(){
         self.hideFooter=false;

@@ -4,7 +4,7 @@ const state = {
     artworks: null,
     selected: null,
     isLoaded: false,
-    intro: true
+    intro: true,
 };
 
 const mutations = {

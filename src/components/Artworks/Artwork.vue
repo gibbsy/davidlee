@@ -56,9 +56,6 @@ import Vue from 'vue';
       }
     },
     methods: {
-      viewDetails() {
-
-      },
       calculateSize() {
        this.myWidth = this.$refs.art.offsetWidth;
        this.myHeight = this.$refs.art.offsetHeight;
@@ -90,7 +87,7 @@ import Vue from 'vue';
     },
     watch: {
       winWidth: function() { this.calculateSize() },
-      winHeight: function() { this.calculateSize() },
+      winHeight: function() { this.calculateSize() }
     },
     mounted() {
       var self = this;

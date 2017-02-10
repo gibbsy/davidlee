@@ -27,8 +27,7 @@ export default {
   data() {
     return {
       myHeight: '',
-      lastStoredArtHeight: '',
-      activateModal: false
+      lastStoredArtHeight: ''
     }
   },
   computed: {
@@ -37,6 +36,9 @@ export default {
     },
     numRows() {
       return this.artworks.length/2
+    },
+    activateModal() {
+      return this.$store.getters.isModalArt;
     }
   },
   methods: {
@@ -50,11 +52,11 @@ export default {
     showModal(index) {
       this.$store.dispatch('setSelected', index);  
       this.$nextTick(function() {
-      this.activateModal = true;
+        this.$store.dispatch('setMenu', 'modalArt');
       })
     },
     hideModal() {
-      this.activateModal = false;
+      this.$store.dispatch('setMenu', 'off');
     }
   },
   components: {
