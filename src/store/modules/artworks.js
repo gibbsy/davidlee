@@ -10,11 +10,10 @@ const state = {
 const mutations = {
     'SET_WORK' (state, data) {
         state.isLoaded = true;
-        state.artworks = data.works;
+        state.artworks = data;
     },
     'SET_SELECTED' (state, index) {
         state.selected = state.artworks[index];
-       // console.log(state.selected.thumbnail);
     },
     'INTRO_DONE' (state) {
         state.intro = false;
@@ -23,7 +22,7 @@ const mutations = {
 
 const actions = {
     loadData({commit}) {
-         Vue.http.get('./src/data/data.json')
+         Vue.http.get('artwork')
         .then(response => response.json())
         .then(data => {
              commit('SET_WORK', data);

@@ -5,7 +5,7 @@
         @click="selectFn(index)">
     <img :src="thumbImg" ref="art">
     <div class="info">
-      <h1>{{artwork.title}}</h1>
+      <h1 v-html="artwork.title"></h1>
       <h2>{{artwork.dimensions}}</h2>
       <h3 id="enquire">Enquire</h3>
       <h1>07939 526 895</h1>
@@ -20,7 +20,7 @@ import Vue from 'vue';
     props: ['artwork', 'index', 'heightFn', 'selectFn'],
     data() {
       return {
-        thumbImg: require('../../assets/thumbs/' + this.artwork.thumbnail),
+        thumbImg: this.artwork.thumbnail_url,
         myWidth: '',
         myHeight: '',
         posTop: '',

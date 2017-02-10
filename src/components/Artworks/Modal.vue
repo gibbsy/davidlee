@@ -33,7 +33,7 @@ export default {
     initData(){
       this.title = this.selected.title;
       this.dimensions = this.selected.dimensions;
-      this.artwork = require('../../assets/full/' + this.selected.full);
+      this.artwork = this.selected.full_image_url;
     }
   },
   created() {

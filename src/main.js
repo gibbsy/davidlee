@@ -8,7 +8,7 @@ import store from './store/store';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-//Vue.http.options.root = 'http://localhost:8888/wp-rest/wp/wp-json/wp/v2'
+Vue.http.options.root = 'http://davidlee.andrewgillon.com/wp/wp-json/wp/v2'
 
 new Vue({
   el: '#app',
